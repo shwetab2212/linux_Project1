@@ -13,4 +13,4 @@
 
 
 read -p "Enter username >> " username
-
+read -p "Enter password >> " password
