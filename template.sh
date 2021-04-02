@@ -44,6 +44,11 @@
 
 
 
+echo "Welcome to Wing'In It!"
+echo "The best chicken in Northern Virginia"
+echo "At Wing'In It, we are all about big portions, remarkable flavors, and crispy goodness"
+echo "To begin experiencing fresh eating and quality service, please proceed to the login page"
+
 
 
 ################################################################################
