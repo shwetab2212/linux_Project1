@@ -165,7 +165,12 @@ welcomeMessage
 #                                                                              #
 #                               Thank you Page                                 #
 
+echo "Thank you for your purchase!"
+echo "Here at Wing'In It, we value each and every customer"
+echo "For more than 25 years, our company has been focused on providing the best-ever fried chicken experience, along with attentive service to valued customers."
+echo "We appreciate having you as a customer and look forward to serving you again"
 
+  
 
 
 
