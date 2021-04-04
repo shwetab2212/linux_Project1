@@ -169,8 +169,6 @@ function what_size_wing
 
 {
 
-#keeps the price
-
 price_for_wing_size=""
 
 size_of_wing_order=""
@@ -186,7 +184,6 @@ done
 
 read -p "$(echo $'\n>')" wing_size
 
-#loop sizes
 for w in "${!size_opt[@]}"; do
 	if [[ "$w" == "$wing_size" ]]; then
 		true_size=true
@@ -211,14 +208,12 @@ function protein_choice
 
 {
 
-#prices
 protein_choice=""
 price_of_protein=""
 true_protein=false
 
 echo -e "\nWhat type of Protein would you like to choose for your order Today?"
 
-#loops
 for protein in "${!protein_opt[@]}";
 
 do
@@ -227,7 +222,6 @@ done
 
 read -p "$(echo $'\n>')" protein_choice
 
-#loop protein
 for w in "${!protein_opt[@]}"; do
 	if [[ "$w" == "$protein_choice" ]]; then
 		true_protein=true
@@ -254,14 +248,12 @@ function wing_sauce
 
 {
 
-#prices
 price_of_sauce=""
 sauce_choice=""
 true_sauce=false
 
 echo -e "\nWhat type of Sauce would you like to choose for the Wings Today?"
 
-#loops
 for sauce in "${!sauce_opt[@]}";
 do
 	echo -e "\fSauce: $sauce";	#to add price delete this comment and ;  Price: \$${sauce_opt[$sauce]}";
@@ -269,7 +261,6 @@ done
 
 read -p "$(echo $'\n>')" sauce_choice
 
-#loop sauces
 for w in "${!sauce_opt[@]}"; do
 	if [[ "$w" == "$sauce_choice" ]]; then
 		true_sauce=true
@@ -294,7 +285,6 @@ function side_choice_opt
 
 {
 
-#the price
 price_for_side=""
 
 choice_of_side=""
@@ -310,7 +300,6 @@ done
 
 read -p "$(echo $'\n>')" side_choice
 
-#loop sizes
 for w in "${!side_opt[@]}"; do
         if [[ "$w" == "$side_choice" ]]; then
 		true_side=true
@@ -336,7 +325,6 @@ function dressing_choice_opt
 
 {
 
-#the price
 price_for_dressing=""
 
 choice_of_dressing=""
@@ -351,7 +339,6 @@ done
 
 read -p "$(echo $'\n>')" dressing_choice
 
-#loop dress
 for w in "${!dressing_opt[@]}"; do
         if [[ "$w" == "$dressing_choice" ]]; then
                 true_dressing=true
@@ -377,7 +364,6 @@ function soda_choice_opt
 
 {
 
-#stores the price
 price_for_soda=""
 
 choice_of_soda=""
@@ -392,7 +378,6 @@ done
 
 read -p "$(echo $'\n>')" soda_choice
 
-#loop soda
 for w in "${!soda_pik[@]}"; do
         if [[ "$w" == "$soda_choice" ]]; then
                 true_soda=true
