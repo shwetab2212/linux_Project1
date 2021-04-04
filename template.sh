@@ -59,7 +59,7 @@ declare -A soda_pik=(["Cola"]=2 ["Tea Sweet"]=2 ["Just Tea"]=2 ["H20"]=2)
 
 custmr_ordr="$size_of_wing_order $protein_choice $sauce_choice $choice_of_side $choice_of_dressing $choice_of_soda"
 
-order_cost=$(( "$price_for_wing_size" + "price_of_protein" + "$price_of_sauce" + "price_of_sauce" + "price_for_side" + "price_for_dressing" + "price_for_soda" ))
+order_cost=$(( "$price_for_wing_size" + "price_of_protein" + "$price_of_sauce" + "price_for_side" + "price_for_dressing" + "price_for_soda" ))
 
 ################################################################################
 ################################################################################
@@ -282,7 +282,7 @@ done
 
 if [ "$true_sauce" == "false" ]; then
     echo "You choose $sauce_choice"
-    echo "Please Choice from one of our award winning flavors!"
+    echo "Please Choose from one of our award winning flavors!"
     wing_sauce
 fi
 
@@ -294,7 +294,7 @@ function side_choice_opt
 
 {
 
-#stores the price
+#the price
 price_for_side=""
 
 choice_of_side=""
@@ -336,7 +336,7 @@ function dressing_choice_opt
 
 {
 
-#stores the price
+#the price
 price_for_dressing=""
 
 choice_of_dressing=""
