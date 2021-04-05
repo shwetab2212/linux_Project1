@@ -59,7 +59,7 @@ declare -A soda_pik=(["Cola"]=2 ["Tea Sweet"]=2 ["Just Tea"]=2 ["H20"]=2)
 
 custmr_ordr="$size_of_wing_order $protein_choice $sauce_choice $choice_of_side $choice_of_dressing $choice_of_soda"
 
-order_cost=$(( "$price_for_wing_size" + "price_of_protein" + "$price_of_sauce" + "price_for_side" + "price_for_dressing" + "price_for_soda" ))
+order_cost=$(( "$price_for_wing_size" + "$price_of_protein" + "$price_of_sauce" + "$price_for_side" + "$price_for_dressing" + "$price_for_soda" ))
 
 ################################################################################
 ################################################################################
@@ -68,11 +68,15 @@ order_cost=$(( "$price_for_wing_size" + "price_of_protein" + "$price_of_sauce" +
 #                               Welcome Screen                                 #
 
 
-
-
+echo "................"
+toilet --gay "WING'IN IT"
+echo "................"
 echo "Welcome to Wing'In It!"
+echo "                       "
 echo "The best chicken in Northern Virginia"
+echo "                           "
 echo "At Wing'In It, we are all about big portions, remarkable flavors, and crispy goodness"
+echo "                                           "
 echo "To begin experiencing fresh eating and quality service, please proceed to the login page"
 
 
@@ -83,7 +87,7 @@ echo "To begin experiencing fresh eating and quality service, please proceed to 
 #                                                                              #
 #                            Log-in/User Account Screen                        #
 
-function createuser
+function createUserDetails
 {
 read -p "Enter FIrst Name >> " firstName
 read -p "Enter Last Name >> " lastName
@@ -91,10 +95,10 @@ read -p "Enter Address >> " address
 read -p "Enter Phone Number >> " phoneNumber
 read -p "Enter Email >> " email
 }
-function createusername
+function createUserName
 {
-read -p "Enter username to create >> " username
-read -p "Enter password to create >> " password
+read -p "Enter username to create >> " createUsername
+read -p "Enter password to create >> " createPassword
 }
 
 function welcomeMessage
@@ -102,50 +106,89 @@ function welcomeMessage
 echo "Welcome to  Wing'in it"
 echo "We're here for you ,Order now"
 }
-echo"....USER LOG IN........"
-echo "                          "
+
+function loginMethod
+{
+echo "---------------------"
+echo "    USER LOG IN      "
+echo "----------------------                          "
 echo "Existing Customer -  Enter 1"
+echo "                      "
 echo "New Customer - Enter 2"
+echo "                         "
 echo "Guest - Enter 3"
 echo "                           "
 read -p "Select which operation you want to perform to log in (1-3) >> " option
 echo "                           "
 echo "You have chosen $option "
+}
 
-#case $option in
-#1)
-Username=customer1
-Password=pass
+loginMethod
+
+userName="customer1"
+password="pass"
+
+case $option in
+1)
 
 while true
 do
 read -p "Enter Username >> " u
 read -p "Enter Password >> " p
 
-if [[ $Username == $u ]] && [[ $Password == $p ]]
+if [[ $userName == $u ]] && [[ $password == $p ]]
 then
 echo "$Username, You're authenticated"
 welcomeMessage
 break
 else 
-echo "Wrong credentials. Try again"
+read -p "Wrong credentials. Do you want change login method!!! Enter Y or N >> " changeLogin
+
+if [[ $changeLogin == "Y" ]]
+then
+loginMethod
+else
+echo "Wrong Credetials. Please enter Again"
+fi
+
 fi
 done
-
-#2)
+;;
+2)
 echo "Please create a new account with us by filling up the mandatory fields"
-createuser
-createusername
+createUserDetails
+createUserName
 
-echo "Congratulations!! $username is successfully added"
+echo "Congratulations!! $createUsername is successfully added"
 welcomeMessage
-
-#3)
+;;
+3)
 echo "Please enter your details as a Guest"
-createuser
+createUserDetails
 echo "Great! You have entered as a Guest"
 welcomeMessage
-#esac
+;;
+esac
+
+
+ echo "Would you like to pickup or deliver?"
+
+echo "For Pickup -  Enter 1"
+echo "For Delivery( $ 5.00) - Enter 2"
+ echo "                           "
+ read -p "Select which option  you want to perform (1-2) >> " pickupORdelivery
+ echo "                           "
+echo "You have chosen  $pickupORdelivery"
+
+deliveryCharges=0
+
+
+if [[ $pickupORdelivery ==  2  ]]
+then
+deliveryCharges=5
+fi
+
+echo " Y$deliveryCharges are delivery charges"
 
 ################################################################################
 ################################################################################
@@ -174,6 +217,7 @@ price_for_wing_size=""
 size_of_wing_order=""
 
 true_size=false
+total_wing_quantity=0
 
 echo -e "\nWhat size Wing Order would you like Today?"
 # changed the ! -> #size_opt
@@ -183,12 +227,14 @@ do
 done
 
 read -p "$(echo $'\n>')" wing_size
+read -p "How many do you need >>" total_wing_quantity
 
 for w in "${!size_opt[@]}"; do
 	if [[ "$w" == "$wing_size" ]]; then
 		true_size=true
 		size_of_wing_order="$w"
-		price_for_wing_size="${size_opt[$w]}"
+		price_for_wing_s
+size=$(( "${size_opt[$w]}" * $total_wing_quantity ))
               	protein_choice
                 break
 	fi
@@ -212,6 +258,7 @@ protein_choice=""
 price_of_protein=""
 true_protein=false
 
+
 echo -e "\nWhat type of Protein would you like to choose for your order Today?"
 
 for protein in "${!protein_opt[@]}";
@@ -221,6 +268,7 @@ do
 done
 
 read -p "$(echo $'\n>')" protein_choice
+
 
 for w in "${!protein_opt[@]}"; do
 	if [[ "$w" == "$protein_choice" ]]; then
@@ -290,7 +338,6 @@ price_for_side=""
 choice_of_side=""
 
 true_side=false
-
 echo -e "\nWhat Side Order would you like Today?"
 
 for side in "${!side_opt[@]}";
@@ -299,12 +346,13 @@ do
 done
 
 read -p "$(echo $'\n>')" side_choice
+read -p "How many do you need >>" total_side_quantity
 
 for w in "${!side_opt[@]}"; do
         if [[ "$w" == "$side_choice" ]]; then
 		true_side=true
                 side_choice_order="$w"
-                price_for_side="${side_opt[$w]}"
+                price_for_side=$(( "${side_opt[$w]}" * $total_side_quantity ))
                 dressing_choice_opt
                 break
 	fi
@@ -367,6 +415,7 @@ function soda_choice_opt
 price_for_soda=""
 
 choice_of_soda=""
+total_soda_quantity=0
 
 true_soda=false
 
@@ -376,15 +425,20 @@ for soda in "${!soda_pik[@]}";do
 	echo -e "\fSoda: $soda	Price: \$${soda_pik[$soda]}";
 done
 
+
 read -p "$(echo $'\n>')" soda_choice
+
+
+read -p "How many do you need >>" total_soda_quantity
 
 for w in "${!soda_pik[@]}"; do
         if [[ "$w" == "$soda_choice" ]]; then
                 true_soda=true
                 soda_choice_order="$w"
-                price_for_soda="${soda_pik[$w]}"
-                what_size_wing
-                break
+                price_for_soda=$(( "${soda_pik[$w]}" * $total_soda_quantity ))
+
+               # what_size_wing
+break
         fi
 done
 
@@ -395,7 +449,7 @@ if [ "$true_soda" == "false" ]; then
 
 fi
 
-what_size_wing 
+#what_size_wing 
 }
 
 what_size_wing #loops it back to the begining, must add the next part for it to link up just right
@@ -405,20 +459,26 @@ what_size_wing #loops it back to the begining, must add the next part for it to 
 ################################################################################
 #                                                                              #
 #                              Review & Confirm Order                          #
-#function cart
 
-#{
+custmr_ordr="$size_of_wing_order $protein_choice $sauce_choice $side_choice_order $dressing_choice_order $soda_choice_order"
 
-#echo -e "For your order Today you have selected: \$$custmr_ordr for a total of... \$$order_cost"
+order_cost=$(( "$price_for_wing_size" + "$price_of_protein" + "$price_of_sauce" + "$price_for_side" + "$price_for_dressing" + "$price_for_soda" + "$deliveryCharges"))
 
-#read -p "Is this your Order?:$(echo ""Yes/No" $'\n>')"" custmr_ordr
+echo  "------------------ORDER SUMMARY-----------------"
+echo  "FOR YOUR ORDER TODAY YOU HAVE CHOSEN: "
+echo  "Size of Wing - $size_of_wing_order with $total_wing_quantity quantity of wing"
+echo  "Choice of Protein - $protein_choice"
+echo  "Choice of Sauce - $sauce_choice"
+echo  "choice of Side  - $side_choice_order"
+echo  "Choice of Dressing - $dressing_choice_order"
+echo  "Choice of Soda - $soda_choice_order"
 
-#if [[ "$custmr_ordr" == "true" ]] && [[ "$order_cost" == "True"  ]]; then 
-#        echo "My Pleasure, let me get that sent to the kitchen right away"
+read -p "Is this your Order? echo Yes/No >> " confirm_order
+if [[ "$confirm_order" == "y" ]]
+then
+echo "My Pleasure, Please proceed for checkout"
+fi
 
-#fi
-
-#}
 
 ################################################################################
 ################################################################################
@@ -426,28 +486,60 @@ what_size_wing #loops it back to the begining, must add the next part for it to 
 #                                                                              #
 #                              Complete Your Order                             #
 #                           ---Confirmation Section---                         #
+echo "Would you like to pay by cash or Card?"
 
+echo "For Cash -  Enter 1"
+echo "For Card - Enter 2"
+echo "                           "
+read -p "Select which option  you want to perform (1-2) >> "  cashORcard
+echo "                           "
+echo "You have chosen $cashORcard"
+
+
+if [[ $cashORcard ==  2  ]]
+then
+read -p "Enter your card number >> " cardNumber
+read -p "Enter Expiration date of the card >> " expireDate
+read -p "Enter cvv number >> " cvvNum
+echo "Your Payment information is stored and being verified"
+echo "Great! Your card has been verified.Please proceed with Total Payment"
+fi
+
+total_tax=$(( $order_cost * 8/100 ))
+total=$(( $order_cost  + $deliveryCharges + $total_tax ))
+
+echo "$protein_choice  $size_of_wing  $total_wing_quantity  -- $price_for_wing_size"
+echo "$side _choice_order             $total_side_quantity  -- $price_for_side" 
+echo "$sauce_choice                                         -- $price_of_sauce"
+echo "$dressing_choice_order                                -- $price_for_dressing"
+echo "$soda_choice_order              $total_soda_quantity  -- $price_for_soda"
+echo "Delvery Charges                                     -- $deliveryCharges"
+echo "Tax                                                   -- $total_tax"
+echo "                                                       -------------------"
+echo "TOTAL                                                    $total"
+echo "                                                       -------------------" 
+
+
+
+echo "My Pleasure, let me get that sent to the kitchen right away"
+echo "Your order will be ready in 20mins"
+echo "You will receive a confirmation email address you provided at registration"
+echo "You can always call our customer service center at 77777777"
 
 
 ################################################################################
-################################################################################
+######### I#######################################################################
 ################################################################################
 #                                                                              #
 #                               Thank you Page                                 #
-
-echo "Thank you for your purchase!"
-echo "Here at Wing'In It, we value each and every customer"
-echo "For more than 25 years, our company has been focused on providing the best-ever fried chicken experience, along with attentive service to valued customers."
-echo "We appreciate having you as a customer and look forward to serving you again"
-
-  
-
-
-#                                                                              #
-#                                                                              #
-#                                                                              #
-#                                                                              #
-#                                                                              #
-################################################################################
-################################################################################
-################################################################################
+echo "Thank you for your purchase"
+echo "                             "
+echo "Here at WingIn It, we value each and every customer"
+echo "                                 "
+echo "For more than 25 years, our company has been focused on providing the best-ever fried chicken experience, along with attentive service to valued customers"
+echo "                                     "
+echo "We appreciate having you as a customer and look forward to serving you again "
+echo "                                                                      "
+echo "---------------------------------------------------------------------------------------------------------"
+figlet THANK YOU, PLEASE VISIT AGAIN
+echo "---------------------------------------------------------------------------------------------------------"
