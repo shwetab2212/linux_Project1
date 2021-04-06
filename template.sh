@@ -70,6 +70,32 @@ custmr_ordr="$size_of_wing_order $protein_choice $sauce_choice $choice_of_side $
 ################################################################################
 ################################################################################
 ################################################################################
+				Menu Page
+
+function what_size_u_want
+
+{
+
+size_array=( Small Medium Large )
+what_u_want_price=( 10 15 20 )
+echo "These are the Sizes aviliable..."
+echo "________________________________"
+counter=1
+for size in "${!size_opt[@]}";
+do
+echo "$counter.$size"
+((counter++))
+done
+echo "________________________________"
+read -p "Select and Option: > " size_chc
+
+case $size_chc in
+1) echo "${size_opt[0]} - \$${size_opt[0]}";;
+2) echo "${size_opt[1]}";;
+3) echo "${size_opt[2]}";;
+esac
+
+
 
 
 ################################################################################
