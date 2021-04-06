@@ -105,28 +105,29 @@ do
 	((counter++))
 #done
 
-read -p "$(echo $'\n>')" wing_size
+read -p "Please Type out your choice >>" wing_size
 read -p "How many do you need >>" total_wing_quantity
 
 case $wing_size in
 	1) echo "${size_opt[0]} - \$${size_prc[0]}";;
-	2) echo "${size_opt[1]} - \$${size_prc[1]}";;
-	3) echo "${size_opt[2]} - \$${size_prc[2]}";;
-	protein_choice
-	break
+	2) echo "${size_opt[1]}";; # - \$${size_prc[1]}";;
+	3) echo "${size_opt[2]}";; # - \$${size_prc[2]}";;
 esac
+
 done
+
+protein_choice
 
 #for w in "${!size_opt[@]}"; do
 #	if [[ "$w" == "$wing_size" ]]; then
 #for w in "$wing size"; do
 #	if [[ "$w" -gt 3 ]]; then
-		true_size=true
-		size_of_wing_order="$w"
-		price_for_wing_size="${size_opt[$w]}"
-		size=$(( "${size_opt[$w]} * $total_wing_quantity" ))
-              	protein_choice
-                break
+#		true_size=true
+#		size_of_wing_order="$w"
+#		price_for_wing_size="${size_opt[$w]}"
+#		size=$(( "${size_opt[$w]} * $total_wing_quantity" ))
+ #             	protein_choice
+  #              break
 #	fi
 #done
 
@@ -157,7 +158,7 @@ do
 	echo -e "\fProtein: $protein";
 done
 
-read -p "$(echo $'\n>')" protein_choice
+read -p "$(Please Type out your choice >>)" protein_choice
 
 
 for w in "${!protein_opt[@]}"; do
@@ -197,7 +198,7 @@ do
 	echo -e "\fSauce: $sauce";	#to add price delete this comment and ;  Price: \$${sauce_opt[$sauce]}";
 done
 
-read -p "$(echo $'\n>')" sauce_choice
+read -p "$(Please Type out your choice >>)" sauce_choice
 
 for w in "${!sauce_opt[@]}"; do
 	if [[ "$w" == "$sauce_choice" ]]; then
@@ -235,7 +236,7 @@ do
         echo -e "\fSide: $side	Price: \$${side_opt[$side]}";
 done
 
-read -p "$(echo $'\n>')" side_choice
+read -p "Please Type out your choice >>" side_choice
 read -p "How many do you need >>" total_side_quantity
 
 for w in "${!side_opt[@]}"; do
@@ -275,7 +276,7 @@ for dressing in "${!dressing_opt[@]}";do
 	echo -e "\fDressing: $dressing"	# to add ->  Price: \$${dressing_opt[$dressing]}";
 done
 
-read -p "$(echo $'\n>')" dressing_choice
+read -p "Please Type out your choice >>" dressing_choice
 
 for w in "${!dressing_opt[@]}"; do
         if [[ "$w" == "$dressing_choice" ]]; then
@@ -316,7 +317,7 @@ for soda in "${!soda_pik[@]}";do
 done
 
 
-read -p "$(echo $'\n>')" soda_choice
+read -p "Please Type out your choice >>" soda_choice
 
 
 read -p "How many do you need >>" total_soda_quantity
