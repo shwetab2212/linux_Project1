@@ -519,12 +519,15 @@ echo "                                                       -------------------
 echo "TOTAL                                                    $total"
 echo "                                                       -------------------" 
 
-
-
+echo "------------------------"
+echo "	ORDER CONFIRMATION    "
+echo "------------------------"
 echo "My Pleasure, let me get that sent to the kitchen right away"
 echo "Your order will be ready in 20mins"
-echo "You will receive a confirmation email address you provided at registration"
-echo "You can always call our customer service center at 77777777"
+echo "You will receive an order confirmation in the email address you provided at registration"
+echo "As a show of our appreciation, we're giving you 10% OFF of your next order"
+echo "If you ever have any questions, concerns, or would like to rate our service"
+echo "feel free to contact our customer service center any time at 555-777-7777"
 
 
 ################################################################################
