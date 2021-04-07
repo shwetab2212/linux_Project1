@@ -43,7 +43,13 @@ soda_array=( "Cola" "Tea Sweet" "Just Tea" "H20" )
 
 #declare variables with pricing
 
-declare -A size_opt=(["Small"]=10 ["Medium"]=15 ["Large"]=20)
+declare -A size_opt=( ["Small"]=10 ["Medium"]=15 ["Large"]=20 )
+
+declare -A size_optb=( ["1"]=Small ["2"]=Medium ["3"]=Large )
+
+declare -A size_prc=( "10" "15" "20" )
+
+#declare -A size_op=( "size_optb" "size_prc" )
 
 declare -A protein_opt=(["Regular"]=0 ["Drum Only"]=0 ["Flat Only"]=0 ["Breaded Cauliflower"]=0)
 
@@ -59,142 +65,37 @@ declare -A soda_pik=(["Cola"]=2 ["Tea Sweet"]=2 ["Just Tea"]=2 ["H20"]=2)
 
 custmr_ordr="$size_of_wing_order $protein_choice $sauce_choice $choice_of_side $choice_of_dressing $choice_of_soda"
 
-order_cost=$(( "$price_for_wing_size" + "$price_of_protein" + "$price_of_sauce" + "$price_for_side" + "$price_for_dressing" + "$price_for_soda" ))
+#order_cost=$(( "$price_for_wing_size" + "$price_of_protein" + "$price_of_sauce" + "$price_for_side" + "$price_for_dressing" + "$price_for_soda" ))
 
 ################################################################################
 ################################################################################
 ################################################################################
-#                                                                              #
-#                               Welcome Screen                                 #
+				Menu Page
 
+function what_size_u_want
 
-echo "................"
-toilet --gay "WING'IN IT"
-echo "................"
-echo "Welcome to Wing'In It!"
-echo "                       "
-echo "The best chicken in Northern Virginia"
-echo "                           "
-echo "At Wing'In It, we are all about big portions, remarkable flavors, and crispy goodness"
-echo "                                           "
-echo "To begin experiencing fresh eating and quality service, please proceed to the login page"
-
-
-
-################################################################################
-################################################################################
-################################################################################
-#                                                                              #
-#                            Log-in/User Account Screen                        #
-
-function createUserDetails
 {
-read -p "Enter FIrst Name >> " firstName
-read -p "Enter Last Name >> " lastName
-read -p "Enter Address >> " address
-read -p "Enter Phone Number >> " phoneNumber
-read -p "Enter Email >> " email
-}
-function createUserName
-{
-read -p "Enter username to create >> " createUsername
-read -p "Enter password to create >> " createPassword
-}
 
-function welcomeMessage
-{
-echo "Welcome to  Wing'in it"
-echo "We're here for you ,Order now"
-}
-
-function loginMethod
-{
-echo "---------------------"
-echo "    USER LOG IN      "
-echo "----------------------                          "
-echo "Existing Customer -  Enter 1"
-echo "                      "
-echo "New Customer - Enter 2"
-echo "                         "
-echo "Guest - Enter 3"
-echo "                           "
-read -p "Select which operation you want to perform to log in (1-3) >> " option
-echo "                           "
-echo "You have chosen $option "
-}
-
-loginMethod
-
-userName="customer1"
-password="pass"
-
-case $option in
-1)
-
-while true
+size_array=( Small Medium Large )
+what_u_want_price=( 10 15 20 )
+echo "These are the Sizes aviliable..."
+echo "________________________________"
+counter=1
+for size in "${!size_opt[@]}";
 do
-read -p "Enter Username >> " u
-read -p "Enter Password >> " p
-
-if [[ $userName == $u ]] && [[ $password == $p ]]
-then
-echo "$Username, You're authenticated"
-welcomeMessage
-break
-else 
-read -p "Wrong credentials. Do you want change login method!!! Enter Y or N >> " changeLogin
-
-if [[ $changeLogin == "Y" ]]
-then
-loginMethod
-else
-echo "Wrong Credetials. Please enter Again"
-fi
-
-fi
+echo "$counter.$size"
+((counter++))
 done
-;;
-2)
-echo "Please create a new account with us by filling up the mandatory fields"
-createUserDetails
-createUserName
+echo "________________________________"
+read -p "Select and Option: > " size_chc
 
-echo "Congratulations!! $createUsername is successfully added"
-welcomeMessage
-;;
-3)
-echo "Please enter your details as a Guest"
-createUserDetails
-echo "Great! You have entered as a Guest"
-welcomeMessage
-;;
+case $size_chc in
+1) echo "${size_opt[0]} - \$${size_opt[0]}";;
+2) echo "${size_opt[1]}";;
+3) echo "${size_opt[2]}";;
 esac
 
 
- echo "Would you like to pickup or deliver?"
-
-echo "For Pickup -  Enter 1"
-echo "For Delivery( $ 5.00) - Enter 2"
- echo "                           "
- read -p "Select which option  you want to perform (1-2) >> " pickupORdelivery
- echo "                           "
-echo "You have chosen  $pickupORdelivery"
-
-deliveryCharges=0
-
-
-if [[ $pickupORdelivery ==  2  ]]
-then
-deliveryCharges=5
-fi
-
-echo " Y$deliveryCharges are delivery charges"
-
-################################################################################
-################################################################################
-################################################################################
-#                                                                              #
-#                               Menu Page                                      #
 
 
 ################################################################################
@@ -203,10 +104,6 @@ echo " Y$deliveryCharges are delivery charges"
 #                                                                              #
 #                              Place Order Page                                #
 
-
-#functions for placing order
-
-#function for size of choice
 
 function what_size_wing
 
@@ -217,33 +114,100 @@ price_for_wing_size=""
 size_of_wing_order=""
 
 true_size=false
+
 total_wing_quantity=0
 
 echo -e "\nWhat size Wing Order would you like Today?"
-# changed the ! -> #size_opt
-for size in "${!size_opt[@]}";
-do
-	echo -e "\fSize: $size	Price: \$${size_opt[$size]}";
+
+for size in "${!size_optb[@]}"; do
+	for sizep in "${!size_prc[@]}"; do
+
+	echo -e "\fPick: $size  ";
+	done
 done
 
 read -p "$(echo $'\n>')" wing_size
 read -p "How many do you need >>" total_wing_quantity
 
-for w in "${!size_opt[@]}"; do
-	if [[ "$w" == "$wing_size" ]]; then
-		true_size=true
-		size_of_wing_order="$w"
-		price_for_wing_s
-size=$(( "${size_opt[$w]}" * $total_wing_quantity ))
-              	protein_choice
+for w in "${!size_optb[@]}"; do
+        if [[ "$w" == "$wing_size" ]]; then
+                true_size=true
+                size_of_wing_order="$w"
+                price_for_wing_size="${size_optb[$w]}"
+                size=$(( "${size_optb[$w]} * $total_wing_quantity" ))
+                protein_choice
                 break
-	fi
+        fi
 done
 
 if [ "$true_size" == "false" ]; then
-	echo "You choose $wing_size"
-	echo "Please Choice A Wing Size, from Small to Large"
-		what_size_wing
+	echo "You choose $wing_size, Please Choice A Wing Size, from Small to Large"
+	what_size_wing
+
+fi
+
+}
+
+
+#####################################
+#functions for placing order
+
+#function for size of choice##############################test section
+
+function what_size_wingb
+
+{
+
+price_for_wing_size=""
+
+size_of_wing_order=""
+
+#true_size=false
+
+total_wing_quantity=0
+
+echo -e "\nWhat size Wing Order would you like Today?"
+
+# add
+counter=1
+while=true
+
+for size in "${!size_opt[@]}";
+#add $counter and count++
+do
+	echo -e "\f $counter.Size: $size	Price: \$${size_opt[$size]}";
+	((counter++))
+done
+
+read -p "Please Type out your choice >>" wing_size
+read -p "How many do you need >>" total_wing_quantity
+
+#case $wing_size in
+#	1) echo "${size_opt[0]} - \$${size_prc[0]}";;
+#	2) echo "${size_opt[1]}";; # - \$${size_prc[1]}";;
+#	3) echo "${size_opt[2]}";; # - \$${size_prc[2]}";;
+#esac
+
+#done
+
+#protein_choice
+
+for w in "${!size_opt[@]}"; do
+	if [[ "$w" == "$wing_size" ]]; then
+#for w in "$wing size"; do
+#	if [[ "$w" -gt 3 ]]; then
+		true_size=true
+		size_of_wing_order="$w"
+		price_for_wing_size="${size_opt[$w]}"
+		size=$(( "${size_opt[$w]} * $total_wing_quantity" ))
+             	protein_choice
+                break
+	fi
+done
+##################################################################################keep below
+if [ "$true_size" == "false" ]; then
+	echo "You choose $wing_size, Please Choice A Wing Size, from Small to Large"
+	what_size_wing
 
 fi
 
@@ -267,7 +231,7 @@ do
 	echo -e "\fProtein: $protein";
 done
 
-read -p "$(echo $'\n>')" protein_choice
+read -p "Please Type out your choice >>" protein_choice
 
 
 for w in "${!protein_opt[@]}"; do
@@ -283,9 +247,8 @@ done
 echo -e "You have chosen $protein_choice"
 
 if [ "$true_protein" == "false" ]; then
-	echo "You choose $protein_choice"
-	echo "Please Choose a Protein, We have a varieity of choices to choose from."
-		protein_choice
+	echo "You choose $protein_choice, Please Choose a Protein, We have a varieity of choices to choose from."
+	protein_choice
 fi
 
 }
@@ -307,7 +270,7 @@ do
 	echo -e "\fSauce: $sauce";	#to add price delete this comment and ;  Price: \$${sauce_opt[$sauce]}";
 done
 
-read -p "$(echo $'\n>')" sauce_choice
+read -p "$Please Type out your choice >>" sauce_choice
 
 for w in "${!sauce_opt[@]}"; do
 	if [[ "$w" == "$sauce_choice" ]]; then
@@ -320,8 +283,7 @@ for w in "${!sauce_opt[@]}"; do
 done
 
 if [ "$true_sauce" == "false" ]; then
-    echo "You choose $sauce_choice"
-    echo "Please Choose from one of our award winning flavors!"
+    echo "You choose $sauce_choice, Please Choose from one of our award winning flavors!"
     wing_sauce
 fi
 
@@ -345,7 +307,7 @@ do
         echo -e "\fSide: $side	Price: \$${side_opt[$side]}";
 done
 
-read -p "$(echo $'\n>')" side_choice
+read -p "Please Type out your choice >>" side_choice
 read -p "How many do you need >>" total_side_quantity
 
 for w in "${!side_opt[@]}"; do
@@ -359,9 +321,8 @@ for w in "${!side_opt[@]}"; do
 done
 
 if [ "$true_side" == "false" ]; then
-	echo "You choose $side_choice"
-	echo "Please Pick a Side, only if you want."
-		side_choice_opt
+	echo "You choose $side_choice, Please Pick a Side, only if you want."
+	side_choice_opt
 
 fi
 
@@ -385,7 +346,7 @@ for dressing in "${!dressing_opt[@]}";do
 	echo -e "\fDressing: $dressing"	# to add ->  Price: \$${dressing_opt[$dressing]}";
 done
 
-read -p "$(echo $'\n>')" dressing_choice
+read -p "Please Type out your choice >>" dressing_choice
 
 for w in "${!dressing_opt[@]}"; do
         if [[ "$w" == "$dressing_choice" ]]; then
@@ -398,9 +359,8 @@ for w in "${!dressing_opt[@]}"; do
 done
 
 if [ "$true_dressing" == "false" ]; then
-	echo "You choose $dressing_choice"
-	echo "Please Pick a Dressing, only if you want."
-		dressing_choice_opt
+	echo "You choose $dressing_choice, Please Pick a Dressing, only if you want."
+	dressing_choice_opt
 
 fi
 
@@ -426,7 +386,7 @@ for soda in "${!soda_pik[@]}";do
 done
 
 
-read -p "$(echo $'\n>')" soda_choice
+read -p "Please Type out your choice >>" soda_choice
 
 
 read -p "How many do you need >>" total_soda_quantity
@@ -443,9 +403,8 @@ break
 done
 
 if [ "$true_soda" == "false" ]; then
-	echo "You choose $soda_choice"
-	echo "Please Pick a refreshing soda of choice..."
-		soda_choice_opt
+	echo "You choose $soda_choice, Please Pick a refreshing soda of choice..."
+	soda_choice_opt
 
 fi
 
