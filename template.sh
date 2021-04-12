@@ -16,6 +16,7 @@
 # Changes Made:                                                                #
 #               April 1st: Created Template				       #
 #		April 3rd: Created Menu order system			       #
+#		April 12th: Code finished w/font revisions		       #
 #                                                                              #
 ################################################################################
 ################################################################################
@@ -30,40 +31,42 @@
 #                                                                              #
 # Alias and list of Arrays:                                                    #
 
-
-
-
 #declare variables with pricing
 
-
-
-
-
-
-
 #alias
-
-
-
-
 
 ################################################################################
 ################################################################################
 ################################################################################
 #                               Welcome Screen                                 #
 
+clear
 
-echo "-------------------------------------------------------------------"
+echo "-------------------------------------------------------------------------"
 toilet --metal "WING'IN IT"
-echo "--------------------------------------------------------------------"
+toilet --metal "w/ Chef"
+toilet --metal "Aminata"
+echo "-------------------------------------------------------------------------"
+sleep 5
+clear
 echo "Welcome to Wing'In It!"
-echo "                       "
-echo "The best chicken in Northern Virginia"
+sleep 2
+echo "                      "
+echo "Home to the Very Best Chicken in all of Northern Virginia"
+sleep 2
 echo "                           "
-echo "At Wing'In It, we are all about big portions, remarkable flavors, and crispy goodness"
+echo "Our Mission is to Deliver the Freshest of Ingredients and Fuse Those With Our Passion For Wings"
+sleep 2
+echo " "
+echo "At Wing'In It, We are All about BIG Portions, Remarkable Flavors, and Crispy Goodness"
+sleep 2
 echo "                                           "
-echo "To begin experiencing fresh eating and quality service, please proceed to the login page"
-
+echo "To Begin the Fresh Eating and Quality Service Expirecne; please proceed to the Login page"
+sleep 2
+echo " "
+echo "And Thank YOU for dining with Us Today!"
+clear
+#								               #
 ################################################################################
 ################################################################################
 ################################################################################
@@ -100,15 +103,16 @@ echo -e "\nWe're here for you ,Order now"
 function loginMethod
 {
 echo "--------------------------------------------------------------------"
-echo "                    USER LOG IN      "
+echo "                            USER LOG IN                             "
 echo "--------------------------------------------------------------------"
-echo "Existing Customer -  Enter 1"
+echo " "
+echo -e "Existing Customer -  \tEnter 1"
 echo "                      "
-echo "New Customer - Enter 2"
+echo -e "New Customer - \t\tEnter 2"
 echo "                         "
-echo "Guest - Enter 3"
+echo -e "Guest - \t\tEnter 3"
 echo "                           "
-read -p "Select which operation you want to perform to log in (1-3) >> " option
+read -p "Select which operation you want to perform to log-in (1-3) >> " option
 echo "                           "
 echo "You have chosen $option "
 }
@@ -159,19 +163,19 @@ welcomeMessage
 ;;
 esac
 
-
+clear
 echo "--------------------------------------------------------------------"
-echo "                    PICKUP/DELIVERY      "
+echo "                          PICKUP/DELIVERY                           "
 echo "--------------------------------------------------------------------"
 
 echo -e "\nWould you like to pickup or deliver?"
 
-echo -e "\nFor Pickup -  Enter 1"
-echo -e "\nFor Delivery( $ 5.00) - Enter 2"
+echo -e "\nFor Pickup - \t\t\tEnter 1"
+echo -e "\nFor Delivery( $ 5.00) - \tEnter 2"
 echo "                           "
 read -p "Select which option  you want to perform (1-2) >> " pickupORdelivery
 echo "                           "
-echo -e "\nYou have chosen  $pickupORdelivery"
+echo -e "\nYou have chosen: $pickupORdelivery"
 deliveryCharges=0
 
 
@@ -191,25 +195,26 @@ echo -e "\n\$$deliveryCharges are delivery charges"
 #                              Place Order Page                                #
 clear
 echo "--------------------------------------------------------------------"
-echo "                      MENU SELECTION      "
+echo "                          MENU SELECTION                            "
 echo "--------------------------------------------------------------------"
-
+echo " "
 echo "PLEASE SELECT FROM OUR WIDE VARIETY OF WINGS,SIDES AND SPECIALS"
 echo "                                                       "
 declare -a wing_size=("Small" "Medium" "Large")
 declare -a wing_size_price=("10" "15" "20")
 echo "-------------------------------------"
-echo "      A. SIZES OF WING:"
+echo "             Wing Sizes:             "
 echo "-------------------------------------"
 counter=1
-
 for w in ${wing_size[@]}
 do 
-echo "$counter.$w        - Price: \$${wing_size_price[$counter-1]} "
+echo -e "\n$counter.$w \t\tPrice: \$${wing_size_price[$counter-1]} "
 ((counter++))
 done
+echo " "
 echo "--------------------------------"
-read -p "Please Select one Option [1-3]: > " wing_size_selection
+echo " "
+read -p "Please Select an Option [1-3]: > " wing_size_selection
 echo "                                     "
 read -p "How many do you need >>" total_wing_quantity
 echo "                                   "
@@ -364,6 +369,7 @@ echo  "Quantity : $total_beverage_quantity"
 echo  "Price : ${beverage_options_price[$beverage_options_selection-1]}"
 price_for_selected_beverage=$(( "$total_beverage_quantity * ${beverage_options_price[$beverage_options_selection-1]}" ))
 echo "                                               "
+
 clear
 ################################################################################
 ################################################################################
@@ -373,9 +379,9 @@ clear
 
 
 
-echo "--------------------------------------------------------"
-echo "                     ORDER SUMMARY           "
-echo "--------------------------------------------------------"
+echo "-------------------------------------------------------------------------"
+echo "                              ORDER SUMMARY                              "
+echo "-------------------------------------------------------------------------"
 echo  "FOR YOUR ORDER TODAY YOU HAVE CHOSEN: "
 echo  "Size of Wing                   - $selected_wing_size with $total_wing_quantity quantity of wing"
 echo  "Choice of Protein              - $selected_protein"
@@ -391,6 +397,7 @@ then
 echo "My Pleasure, Please proceed for checkout"
 fi
 echo "                                          "
+sleep 3
 clear
 
 ################################################################################
@@ -400,9 +407,9 @@ clear
 #                              Complete Your Order                             #
 #                           ---Confirmation Section---                         #
 
-echo "--------------------------------------------------------"
-echo "                     CHECKOUT           "
-echo "--------------------------------------------------------"
+echo "-------------------------------------------------------------------------"
+echo "                                CHECKOUT                                 "
+echo "-------------------------------------------------------------------------"
 
 echo "Would you like to pay by cash or Card?"
 
@@ -429,9 +436,11 @@ order_cost=$(( $price_for_selected_wing_size + $price_for_selected_protein + $pr
 total_tax=$(( $order_cost * 8/100 ))
 total=$(( $order_cost  + $deliveryCharges + $total_tax ))
 
-echo "--------------------------------------------------------"
-echo "                     INVOICE AMOUNT           "
-echo "--------------------------------------------------------"
+clear
+
+echo "------------------------------------------------------------------------"
+echo "                                INVOICE AMOUNT                          "
+echo "------------------------------------------------------------------------"
 
 echo "                                                        "
 echo "$selected_wing_size                       -$total_wing_quantity            --$price_for_selected_wing_size"
@@ -446,9 +455,11 @@ echo "                                                                        --
 echo "TOTAL                                                                                $total"
 echo "                                                                        -----------------------------------" 
 
-echo "-----------------------------------------------------------"
-echo "	                ORDER CONFIRMATION    "
-echo "-----------------------------------------------------------"
+sleep 10
+
+echo "------------------------------------------------------------------------"
+echo "	                             ORDER CONFIRMATION                       "
+echo "------------------------------------------------------------------------"
 echo -e "\nMy Pleasure, let me get that sent to the kitchen right away"
 echo -e "\nYour order will be ready in 20mins"
 echo -e "\nYou will receive an order confirmation in the email address you provided at registration"
@@ -457,16 +468,19 @@ echo -e "\nIf you ever have any questions, concerns, or would like to rate our s
 echo -e "\nPlease feel free to contact our customer service center any time at 555-777-7777"
 echo "                                               "
 
+sleep 5
+clear
+
 ################################################################################
-######### I#######################################################################
+################################################################################
 ################################################################################
 #                                                                              #
 #                               Thank you Page                                 #
 
 
-echo "--------------------------------------------------------"
-echo "                     THANK YOU           "
-echo "--------------------------------------------------------"
+echo "-------------------------------------------------------------------------"
+echo "                                  THANK YOU                              "
+echo "-------------------------------------------------------------------------"
 
 echo "Thank you for your purchase"
 echo "                             "
