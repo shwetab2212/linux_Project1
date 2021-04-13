@@ -2,9 +2,9 @@
 ################################################################################
 #                               ScritTemplate                                  #
 #                                                                              #
-# Linux Project - "Wing'in It" w/ Chef Aminata                                 #
+# Linux Project - "Wing'in It" w/ Chef Shweta                                  #
 #                                                                              #
-# Authors: Shweta, Bryan, Aminata, Bagrami, Saadeddin                          #
+# Authors: Shweta, Bryan, Bagrami, Saadeddin                                   #
 #                                                                              #
 # Project Due Dates:                                                           #
 #               April 15th, 2021 - Final Script Due                            #
@@ -16,6 +16,7 @@
 # Changes Made:                                                                #
 #               April 1st: Created Template				       #
 #		April 3rd: Created Menu order system			       #
+#		April 12th: Code finished w/font revisions		       #
 #                                                                              #
 ################################################################################
 ################################################################################
@@ -30,40 +31,42 @@
 #                                                                              #
 # Alias and list of Arrays:                                                    #
 
-
-
-
 #declare variables with pricing
 
-
-
-
-
-
-
 #alias
-
-
-
-
 
 ################################################################################
 ################################################################################
 ################################################################################
 #                               Welcome Screen                                 #
 
+clear
 
-echo "-------------------------------------------------------------------"
+echo "-------------------------------------------------------------------------"
 toilet --metal "WING'IN IT"
-echo "--------------------------------------------------------------------"
+toilet --metal "w/ Chef"
+toilet --metal "Shweta"
+echo "-------------------------------------------------------------------------"
+sleep 5
+clear
 echo "Welcome to Wing'In It!"
-echo "                       "
-echo "The best chicken in Northern Virginia"
+sleep 2
+echo "                      "
+echo "Home to the Very Best Chicken in all of Northern Virginia"
+sleep 2
 echo "                           "
-echo "At Wing'In It, we are all about big portions, remarkable flavors, and crispy goodness"
+echo "Our Mission is to Deliver the Freshest of Ingredients and Fuse Those With Our Passion For Wings"
+sleep 2
+echo " "
+echo "At Wing'In It, We are All about BIG Portions, Remarkable Flavors, and Crispy Goodness"
+sleep 2
 echo "                                           "
-echo "To begin experiencing fresh eating and quality service, please proceed to the login page"
-
+echo "To Begin the Fresh Eating and Quality Service Expirecne; please proceed to the Login page"
+sleep 2
+echo " "
+echo "And Thank YOU for dining with Us Today!"
+clear
+#								               #
 ################################################################################
 ################################################################################
 ################################################################################
@@ -100,15 +103,16 @@ echo -e "\nWe're here for you ,Order now"
 function loginMethod
 {
 echo "--------------------------------------------------------------------"
-echo "                    USER LOG IN      "
+echo "                            USER LOG IN                             "
 echo "--------------------------------------------------------------------"
-echo "Existing Customer -  Enter 1"
+echo " "
+echo -e "Existing Customer -  \tEnter 1"
 echo "                      "
-echo "New Customer - Enter 2"
+echo -e "New Customer - \t\tEnter 2"
 echo "                         "
-echo "Guest - Enter 3"
+echo -e "Guest - \t\tEnter 3"
 echo "                           "
-read -p "Select which operation you want to perform to log in (1-3) >> " option
+read -p "Select which operation you want to perform to log-in (1-3) >> " option
 echo "                           "
 echo "You have chosen $option "
 }
@@ -159,19 +163,19 @@ welcomeMessage
 ;;
 esac
 
-
+clear
 echo "--------------------------------------------------------------------"
-echo "                    PICKUP/DELIVERY      "
+echo "                          PICKUP/DELIVERY                           "
 echo "--------------------------------------------------------------------"
 
-echo -e "\nWould you like to pickup or deliver?"
+echo -e "\nWould you like Pick-UP or Delivery Today?"
 
-echo -e "\nFor Pickup -  Enter 1"
-echo -e "\nFor Delivery( $ 5.00) - Enter 2"
+echo -e "\nFor Pickup - \t\t\tEnter 1"
+echo -e "\nFor Delivery( $ 5.00) - \tEnter 2"
 echo "                           "
 read -p "Select which option  you want to perform (1-2) >> " pickupORdelivery
 echo "                           "
-echo -e "\nYou have chosen  $pickupORdelivery"
+echo -e "\nYou have chosen: $pickupORdelivery"
 deliveryCharges=0
 
 
@@ -191,86 +195,145 @@ echo -e "\n\$$deliveryCharges are delivery charges"
 #                              Place Order Page                                #
 clear
 echo "--------------------------------------------------------------------"
-echo "                      MENU SELECTION      "
+echo "                          MENU SELECTION                            "
 echo "--------------------------------------------------------------------"
+echo " "
+echo "  PLEASE SELECT FROM OUR WIDE VARIETY OF WINGS, SIDES AND SPECIALS  "
+echo " "
+echo "  WE HAVE A VARIETY TO SELECT FROM:                                 "
+echo "  "
+echo "  From Small to Large Sizes					  "
+echo "	"
+echo "  The amount of wings comes in 10, 15, to 20 in the large		  "
+echo " "
+echo "  Then you can choose your pick of protein			  "
+echo " "
+echo "  You can pick from Regular, Drum_Only Flat_Only,	and		  "
+echo "  yes, we even have vegan options with Breaded_Cauliflower wings!   "
+echo " "
+echo "  You will also have a pick of one of our awesome sides,beverages,  "
+echo "  and house made dressings.					  "
+echo " "
+echo " Enjoy!								  "
+#                                              _
+#                                   .-.  .--''` )
+#                                _ |  |/`   .-'`
+#                               ( `\      /`
+#                               _)   _.  -'._
+#                             /`  .'     .-.-;
+#                             `).'      /  \  \
+#                            (`,        \_o/_o/__
+#                             /           .-''`  ``'-.
+#                             {         /` ,___.--''`
+#                             {   ;     '-. \ \
+#           _   _             {   |'-....-`'.\_\
+#          / './ '.           \   \          `"`
+#       _  \   \  |            \   \
+#      ( '-.J     \_..----.._ __)   `\--..__
+#     .-`                    `        `\    ''--...--.
+#    (_,.--""`/`         .-             `\       .__ _)
+#            |          (                 }    .__ _)
+#            \_,         '.               }_  - _.'
+#              \_,         '.            } `'--'
+#                  '._.     ,_)          /
+#                     |    /           .'
+#                      \   |    _   .-'
+#                       \__/;--.||-'
+#                        _||   _||__   __
+#                 _ __.-` "`)(` `"  ```._)
+#                (_`,-   ,-'  `''-.   '-._)
+#               (  (    /          '.__.'
+#                `"`'--'
+#
+sleep 6
+clear
 
-echo "PLEASE SELECT FROM OUR WIDE VARIETY OF WINGS,SIDES AND SPECIALS"
-echo "                                                       "
 declare -a wing_size=("Small" "Medium" "Large")
 declare -a wing_size_price=("10" "15" "20")
 echo "-------------------------------------"
-echo "      A. SIZES OF WING:"
+echo "             Wing Sizes              "
 echo "-------------------------------------"
 counter=1
-
 for w in ${wing_size[@]}
 do 
-echo "$counter.$w        - Price: \$${wing_size_price[$counter-1]} "
+echo -e "\n$counter.$w \t\tPrice: \$${wing_size_price[$counter-1]} "
 ((counter++))
 done
-echo "--------------------------------"
-read -p "Please Select one Option [1-3]: > " wing_size_selection
+echo " "
+echo "-------------------------------------"
+echo " "
+read -p "Please Select an Option [1-3]: > " wing_size_selection
 echo "                                     "
 read -p "How many do you need >>" total_wing_quantity
 echo "                                   "
 
 selected_wing_size="${wing_size[$wing_size_selection-1]}"
-echo "$selected_wing_size ,Great Selection"
-
+echo "Your Choice was a size $selected_wing_size order."
+echo " "
 echo  "Quantity : $total_wing_quantity"
-echo  "Price : ${wing_size_price[$wing_size_selection-1]}"
+echo " "
+echo  "Price : \$${wing_size_price[$wing_size_selection-1]}"
 price_for_selected_wing_size=$(( "$total_wing_quantity * ${wing_size_price[$wing_size_selection-1]}" ))
 echo "                                          "
+sleep 3
+clear
+
 # for selection of protein
 
-declare -a protein_options=("Regular" "DrumOnly" "FlatOnly" "BreadedCauliflower")
+declare -a protein_options=("Regular" "Drum_Only" "Flat_Only" "Breaded_Cauliflower")
 declare -a protein_options_price=("0" "0" "0" "0")
 
-echo "--------------------------------"
-echo "  B. CHOICE OF PROTEIN:"
-echo "--------------------------------"
+echo "------------------------------------------"
+echo "          CHOICE OF PROTEIN               "
+echo "------------------------------------------"
 counter=1
 for p in ${protein_options[@]}
 do 
-echo "$counter.$p        - Price: \$${protein_options_price[$counter-1]} "
+echo -e "\n$counter.$p" # not needed ==>  \t\tPrice: \$${protein_options_price[$counter-1]} "
 ((counter++))
 done
-echo "--------------------------------"
+echo " "
+echo "------------------------------------------"
 echo "                                "
-read -p "Please Select one Option [1-4]: > " protein_options_selection
+read -p "Please Select an Option [1-4]: > " protein_options_selection
 echo "                                      "
 
 selected_protein="${protein_options[$protein_options_selection-1]}"
-echo "$selected_protein, Great Selection"
+echo "Your Choice of Protein is $selected_protein"
 echo "                                        "
-echo "Price : ${protein_options_price[$protein_options_selection-1]}"
+#echo "Price : ${protein_options_price[$protein_options_selection-1]}"
 
 price_for_selected_protein="${protein_options_price[$protein_options_selection-1]}" 
 
 #echo "Total Price is $price_for_selected_protein"
 echo "                                       "
+
+sleep 3
+clear
+
 #for selection of sauce
 
 declare -a sauce_options=("Buffalo" "BBQ" "ThaiCurry" "SpicyGarlic")
 declare -a sauce_options_price=("0" "0" "0" "0")
-echo "-------------------------------"
-echo "      C. CHOICE OF SAUCE:"
-echo "-------------------------------"
+
+echo "------------------------------------------"
+echo "            CHOICE OF SAUCE               "
+echo "------------------------------------------"
 counter=1
 
 for s in ${sauce_options[@]}
 do 
-echo "$counter.$s       - Price: \$${sauce_options_price[$counter-1]} "
+echo -e "\n$counter.$s" # again not needed no price \t\tPrice: \$${sauce_options_price[$counter-1]} "
 ((counter++))
 done
-echo "--------------------------------"
-read -p "Please Select one Option [1-4]: > " sauce_options_selection
+echo " "
+echo "------------------------------------------"
+read -p "Please Select an Option [1-4]: > " sauce_options_selection
 echo "                                      "
-
 selected_sauce="${sauce_options[$sauce_options_selection-1]}"
-echo -e "\n$selected_sauce, Great Selection"
+echo "Your Choice of Sauce is $selected_sauce"
 echo "                                  "
-echo "Price : ${sauce_options_price[$sauce_options_selection-1]}"
+#echo "Price : ${sauce_options_price[$sauce_options_selection-1]}"
 
 #read -p "How many do you need >>" total_wing_quantity
 
@@ -278,93 +341,114 @@ echo "Price : ${sauce_options_price[$sauce_options_selection-1]}"
 #echo -e "\nPrice : $price_for_selected_sauce"
 price_for_selected_sauce="${sauce_options_price[$sauce_options_selection-1]}" 
 #echo "Total Price is $price_for_selected_sauce"
-echo "                                                  "
+#echo "                                                  "
+
+sleep 3
+clear
+
 # for selection of side
 
-declare -a side_options=("PotatoWedges" "Fries" "ExtraSauce" "Celery" "ExtraCrispyWings" "NoSide")
-declare -a side_options_price=("3" "2" "1" "1" "0" "0")
+declare -a side_options=("PotatoWedges" "Fries" "Extra_Sauce" "Celery" "Extra_Wings" "No_Side")
+declare -a side_options_price=("3" "2" "1" "1" "3" "0")
 
-echo "-------------------------------"
-echo "      D. CHOICE OF SIDE:"
-echo "-------------------------------"
+echo "------------------------------------------"
+echo "            CHOICE OF SIDE                "
+echo "------------------------------------------"
 counter=1
 
 for si in ${side_options[@]}
 do 
-echo "$counter.$si     -  Price: \$${side_options_price[$counter-1]} "
+echo -e "\n$counter.$si \t\t\tPrice: \$${side_options_price[$counter-1]} "
 ((counter++))
 done
-echo "--------------------------------"
-read -p "Please Select one Option [1-4]: > " side_options_selection
+echo " "
+echo "------------------------------------------"
+read -p "Please Select an Option [1-4]: > " side_options_selection
 echo "                                     "
 read -p "How many do you need >>" total_side_quantity
 echo "                                   "
 
 selected_side="${side_options[$side_options_selection-1]}"
-echo "$selected_side, Great Selection"
-
+echo "You picked our $selected_side side today."
+echo " "
 echo  "Quantity : $total_side_quantity"
-echo  "Price : ${side_options_price[$side_options_selection-1]}"
+echo " "
+echo  "Price : \$${side_options_price[$side_options_selection-1]}"
 price_for_selected_side=$(( "$total_side_quantity * ${side_options_price[$side_options_selection-1]}" ))
 echo "                                     "
+
+sleep 3
+clear
+
 # for selection of dresssing
 
 
-declare -a dressing_options=("BluCheese" "Ranch" "NoDressing")
+declare -a dressing_options=("Blu_Cheese" "Ranch" "No_Dressing")
 declare -a dressing_options_price=("0" "0" "0")
 
 
-echo "-------------------------------"
-echo "      E. CHOICES OF DRESSING:"
-echo "-------------------------------"
+echo "------------------------------------------"
+echo "          CHOICES OF DRESSING             "
+echo "------------------------------------------"
 counter=1
 
 for d in ${dressing_options[@]}
 do 
-echo "$counter.$d - Price: \$${dressing_options_price[$counter-1]} "
+echo -e "\n$counter.$d" # no price \t\tPrice: \$${dressing_options_price[$counter-1]} "
 ((counter++))
 done
-echo "--------------------------------"
-read -p "Please Select one Option [1-3]: > " dressing_options_selection
+echo " "
+echo "------------------------------------------"
+read -p "Please Select an Option [1-3]: > " dressing_options_selection
 echo "                                      "
 
 selected_dressing="${dressing_options[$dressing_options_selection-1]}"
-echo "$selected_dressing , Great Selection"
 
-echo "Price :$price_for_selected_dressing"
+echo "Your Choice was $selected_dressing"
+echo " "
+#echo "Price :$price_for_selected_dressing"
 
 
 price_for_selected_dressing="${dressing_options_price[$dressing_options_selection-1]}" 
-echo "                                                 "
+#echo "                                                 "
+
+sleep 3
+clear
+
 # for selection of beverages
 
-declare -a beverage_options=("Soda" "TeaSweet" "JustTea" "H2O")
-declare -a beverage_options_price=("2" "2" "2" "2")
+declare -a beverage_options=("Soda" "SweetTea" "NormalTea" "H2O")
+declare -a beverage_options_price=("2" "3" "2" "1")
 
-echo "-------------------------------"
-echo "      F. CHOICE OF BEVERAGE:"
-echo "-------------------------------"
+echo "------------------------------------------"
+echo "          CHOICE OF BEVERAGE              "
+echo "------------------------------------------"
 counter=1
 
 for b in ${beverage_options[@]}
 do 
-echo "$counter.$b        - Price: \$${beverage_options_price[$counter-1]} "
+echo -e "\n$counter.$b \t\t\tPrice: \$${beverage_options_price[$counter-1]} "
 ((counter++))
 done
-echo "--------------------------------"
-read -p "Please Select one Option [1-4]: >> " beverage_options_selection
+echo " "
+echo "-----------------------------------------"
+read -p "Please Select an Option [1-4]: >> " beverage_options_selection
 echo "                                     "
 read -p "How many do you need >>" total_beverage_quantity
 echo "                                   "
 
 selected_beverage="${beverage_options[$beverage_options_selection-1]}"
-echo "$selected_beevrage, Great Selection"
-
+echo "Your Refresher you picked is $selected_beverage"
+echo " "
 echo  "Quantity : $total_beverage_quantity"
-echo  "Price : ${beverage_options_price[$beverage_options_selection-1]}"
+echo " "
+echo  "Price : \$${beverage_options_price[$beverage_options_selection-1]}"
 price_for_selected_beverage=$(( "$total_beverage_quantity * ${beverage_options_price[$beverage_options_selection-1]}" ))
 echo "                                               "
+
+sleep 3
 clear
+
 ################################################################################
 ################################################################################
 ################################################################################
@@ -373,9 +457,9 @@ clear
 
 
 
-echo "--------------------------------------------------------"
-echo "                     ORDER SUMMARY           "
-echo "--------------------------------------------------------"
+echo "-------------------------------------------------------------------------"
+echo "                              ORDER SUMMARY                              "
+echo "-------------------------------------------------------------------------"
 echo  "FOR YOUR ORDER TODAY YOU HAVE CHOSEN: "
 echo  "Size of Wing                   - $selected_wing_size with $total_wing_quantity quantity of wing"
 echo  "Choice of Protein              - $selected_protein"
@@ -385,12 +469,13 @@ echo  "Choice of Dressing             - $selected_dressing"
 echo  "Choice of Beverage             - $selected_beverage with $total_beverage_quantity quantity of beverage"
 
 echo "                                   " 
-read -p "Is this your Order? echo Yes/No >> " confirm_order
+read -p "Is this your Order? Yes/No >> " confirm_order
 if [[ "$confirm_order" == "y" ]]
 then
-echo "My Pleasure, Please proceed for checkout"
+echo "My Pleasure, Please proceed to checkout"
 fi
-echo "                                          "
+echo "Please Wait, Adding Items to Your Cart...                                            "
+sleep 3
 clear
 
 ################################################################################
@@ -400,13 +485,14 @@ clear
 #                              Complete Your Order                             #
 #                           ---Confirmation Section---                         #
 
-echo "--------------------------------------------------------"
-echo "                     CHECKOUT           "
-echo "--------------------------------------------------------"
+echo "-------------------------------------------------------------------------"
+echo "                                CHECKOUT                                 "
+echo "-------------------------------------------------------------------------"
 
 echo "Would you like to pay by cash or Card?"
-
+echo " "
 echo "For Cash -  Enter 1"
+echo " "
 echo "For Card -  Enter 2"
 echo "                           "
 read -p "Select which option you want to perform (1-2) >> "  cashORcard
@@ -429,44 +515,79 @@ order_cost=$(( $price_for_selected_wing_size + $price_for_selected_protein + $pr
 total_tax=$(( $order_cost * 8/100 ))
 total=$(( $order_cost  + $deliveryCharges + $total_tax ))
 
-echo "--------------------------------------------------------"
-echo "                     INVOICE AMOUNT           "
-echo "--------------------------------------------------------"
+clear
 
-echo "                                                        "
-echo "$selected_wing_size                       -$total_wing_quantity            --$price_for_selected_wing_size"
-echo "$selected_protein                                                          --$price_for_selected_protein"
-echo "$selected_sauce                                                            --$price_for_selected_side" 
-echo "$selected_side                             -$total_side_quantity           --$price_for_selected_sauce"
-echo "$selected_dressing                                                         --$price_for_selected_dressing"
-echo "$selected_beverage                         - $total_beverage_quantity      --$price_for_selected_beverage"
-echo "Delvery Charges                                                            --$deliveryCharges"
-echo "Tax at 0.08%                                                               --$total_tax"
-echo "                                                                        -----------------------------------"
-echo "TOTAL                                                                                $total"
-echo "                                                                        -----------------------------------" 
+echo "---------------------------------------------------------------------------------------------------"
+echo "                                       INVOICE AMOUNT                                              "
+echo "---------------------------------------------------------------------------------------------------"
 
-echo "-----------------------------------------------------------"
-echo "	                ORDER CONFIRMATION    "
-echo "-----------------------------------------------------------"
-echo -e "\nMy Pleasure, let me get that sent to the kitchen right away"
-echo -e "\nYour order will be ready in 20mins"
+echo "                                                       						 "
+
+printf "%*s\n" 90 "Size:    $selected_wing_size    QTY:$total_wing_quantity    \$$price_for_selected_wing_size"
+printf "%*s\n" 90 "$selected_protein          "
+printf "%*s\n" 90 "$selected_sauce          "
+printf "%*s\n" 90 "$selected_dressing          "
+printf "%*s\n" 90 "$selected_side    QTY:$total_side_quantity    \$$price_for_selected_side"
+printf "%*s\n" 90 "$selected_beverage    QTY:$total_beverage_quantity    \$$price_for_selected_beverage"
+printf "%*s\n" 90 "Delvery Charges:     \$$deliveryCharges"
+printf "%*s\n" 90 "Tax at 0.08%:     \$$total_tax"
+
+#echo -e "Size:$selected_wing_size \tQTY:$total_wing_quantity \t\t\$$price_for_selected_wing_size"
+#echo "$selected_protein                                                                                  "
+#echo "$selected_sauce                                                          				 "
+#echo -e "$selected_side	\tQTY:$total_side_quantity \t\t\$$price_for_selected_side"
+#echo "$selected_dressing                                                   				 "
+#echo -e "$selected_beverage \tQTY:$total_beverage_quantity \t\t\$$price_for_selected_beverage"
+#echo -e "Delvery Charges \t\t\t\$$deliveryCharges"
+#echo -e "Tax at 0.08% \t\t\t\$$total_tax"
+echo "                                                                -----------------------------------"
+echo "                                                                TOTAL:   	        \$$total"
+echo "                                                                -----------------------------------" 
+
+sleep 5
+
+echo "------------------------------------------------------------------------"
+echo "	                             ORDER CONFIRMATION                       "
+echo "------------------------------------------------------------------------"
+echo -e "\nMy Pleasure, let me get your order sent to the kitchen right away"
+echo " "
+echo "Sending..."
+sleep 3
+echo "Gathering Time Request from Kitchen..."
+sleep 3
+echo "..."
+sleep 3
+echo "......"
+sleep 3
+echo"........."
+sleep 3
+echo "............"
+sleep 3
+echo -e "\nYour order has been confirmed and it will be ready in 20 minutes!"
+sleep 5
+clear
 echo -e "\nYou will receive an order confirmation in the email address you provided at registration"
+echo " "
 echo -e "\nAs a show of our appreciation, we're giving you 10% OFF of your next order"
+echo " "
 echo -e "\nIf you ever have any questions, concerns, or would like to rate our service"
-echo -e "\nPlease feel free to contact our customer service center any time at 555-777-7777"
+echo " "
+echo -e "\nPlease feel free to contact us at any time @ 571-245-4647"
 echo "                                               "
 
+sleep 5
+clear
+
 ################################################################################
-######### I#######################################################################
+################################################################################
 ################################################################################
 #                                                                              #
 #                               Thank you Page                                 #
 
 
-echo "--------------------------------------------------------"
-echo "                     THANK YOU           "
-echo "--------------------------------------------------------"
+echo "-------------------------------------------------------------------------"
+echo "                                  THANK YOU                              "
+echo "-------------------------------------------------------------------------"
 
 echo "Thank you for your purchase"
 echo "                             "
