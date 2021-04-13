@@ -2,9 +2,9 @@
 ################################################################################
 #                               ScritTemplate                                  #
 #                                                                              #
-# Linux Project - "Wing'in It" w/ Chef Aminata                                 #
+# Linux Project - "Wing'in It" w/ Chef Shweta                                  #
 #                                                                              #
-# Authors: Shweta, Bryan, Aminata, Bagrami, Saadeddin                          #
+# Authors: Shweta, Bryan, Bagrami, Saadeddin                                   #
 #                                                                              #
 # Project Due Dates:                                                           #
 #               April 15th, 2021 - Final Script Due                            #
@@ -45,7 +45,7 @@ clear
 echo "-------------------------------------------------------------------------"
 toilet --metal "WING'IN IT"
 toilet --metal "w/ Chef"
-toilet --metal "Aminata"
+toilet --metal "Shweta"
 echo "-------------------------------------------------------------------------"
 sleep 5
 clear
