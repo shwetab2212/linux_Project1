@@ -47,22 +47,22 @@ toilet --metal "WING'IN IT"
 toilet --metal "w/ Chef"
 toilet --metal "Shweta"
 echo "-------------------------------------------------------------------------"
-sleep 5
+sleep 1
 clear
 echo "Welcome to Wing'In It!"
-sleep 2
+sleep 1
 echo "                      "
-echo "Home to the Very Best Chicken in all of Northern Virginia"
-sleep 2
+echo "Home to the Very Best Chicken in all of Northern Virginia."
+sleep 1
 echo "                           "
-echo "Our Mission is to Deliver the Freshest of Ingredients and Fuse Those With Our Passion For Wings"
-sleep 2
+echo "Our Mission is to Deliver the Freshest of Ingredients and Fuse Those With Our Passion For Wings."
+sleep 1
 echo " "
-echo "At Wing'In It, We are All about BIG Portions, Remarkable Flavors, and Crispy Goodness"
-sleep 2
+echo "At Wing'In It, We are All about BIG Portions, Remarkable Flavors, and Crispy Goodness."
+sleep 1
 echo "                                           "
-echo "To Begin the Fresh Eating and Quality Service Expirecne; please proceed to the Login page"
-sleep 2
+echo "To Begin the Fresh Eating and Quality Service Expirecne; please proceed to the Login page."
+sleep 1
 echo " "
 echo "And Thank YOU for dining with Us Today!"
 clear
@@ -122,11 +122,12 @@ loginMethod
 userName="customer1"
 password="pass"
 
+while true
+do
+
 case $option in
 1)
 
-while true
-do
 read -p "Enter Username >> " u
 read -p "Enter Password >> " p
 
@@ -137,7 +138,7 @@ welcomeMessage
 break
 else 
 read -p "Wrong credentials. Do you want change login method!!! Enter Y or N >> " changeLogin
-if [[ $changeLogin == "Y" ]]
+if [[ $changeLogin == "y" ]]
 then
 loginMethod
 else
@@ -145,7 +146,6 @@ echo "Wrong Credetials. Please enter Again"
 fi
 
 fi
-done
 ;;
 2)
 echo -e "\nPlease create a new account with us by filling up the mandatory fields"
@@ -154,15 +154,19 @@ createUserName
 
 echo -e "\nCongratulations!! $createUsername is successfully added"
 welcomeMessage
+break
 ;;
 3)
 echo -e "\nPlease enter your details as a Guest"
 createUserDetails
 echo -e "\nGreat! You have entered as a Guest"
 welcomeMessage
+break
 ;;
 esac
+done
 
+sleep 3
 clear
 echo "--------------------------------------------------------------------"
 echo "                          PICKUP/DELIVERY                           "
@@ -245,7 +249,7 @@ echo " Enjoy!								  "
 #               (  (    /          '.__.'
 #                `"`'--'
 #
-sleep 6
+sleep 1
 clear
 
 declare -a wing_size=("Small" "Medium" "Large")
@@ -460,6 +464,7 @@ clear
 echo "-------------------------------------------------------------------------"
 echo "                              ORDER SUMMARY                              "
 echo "-------------------------------------------------------------------------"
+echo " "
 echo  "FOR YOUR ORDER TODAY YOU HAVE CHOSEN: "
 echo  "Size of Wing                   - $selected_wing_size with $total_wing_quantity quantity of wing"
 echo  "Choice of Protein              - $selected_protein"
@@ -523,12 +528,12 @@ echo "--------------------------------------------------------------------------
 
 echo "                                                       						 "
 
-printf "%*s\n" 90 "Size:    $selected_wing_size    QTY:$total_wing_quantity    \$$price_for_selected_wing_size"
-printf "%*s\n" 90 "$selected_protein          "
-printf "%*s\n" 90 "$selected_sauce          "
-printf "%*s\n" 90 "$selected_dressing          "
-printf "%*s\n" 90 "$selected_side    QTY:$total_side_quantity    \$$price_for_selected_side"
-printf "%*s\n" 90 "$selected_beverage    QTY:$total_beverage_quantity    \$$price_for_selected_beverage"
+printf "%*s\n" 90 "Size:    $selected_wing_size    QTY:$total_wing_quantity             \$$price_for_selected_wing_size"
+printf "%*s\n" 90 "$selected_protein                 "
+printf "%*s\n" 90 "$selected_sauce               "
+printf "%*s\n" 90 "$selected_dressing               "
+printf "%*s\n" 90 "$selected_side    QTY:$total_side_quantity          \$$price_for_selected_side"
+printf "%*s\n" 90 "$selected_beverage    QTY:$total_beverage_quantity         \$$price_for_selected_beverage"
 printf "%*s\n" 90 "Delvery Charges:     \$$deliveryCharges"
 printf "%*s\n" 90 "Tax at 0.08%:     \$$total_tax"
 
@@ -559,20 +564,20 @@ echo "..."
 sleep 3
 echo "......"
 sleep 3
-echo"........."
+echo "........."
 sleep 3
 echo "............"
 sleep 3
 echo -e "\nYour order has been confirmed and it will be ready in 20 minutes!"
 sleep 5
 clear
-echo -e "\nYou will receive an order confirmation in the email address you provided at registration"
+echo -e "\nYou will receive an order confirmation in the email address you provided at registration."
 echo " "
-echo -e "\nAs a show of our appreciation, we're giving you 10% OFF of your next order"
+echo -e "\nAs a show of our appreciation, we're giving you 10% OFF of your next order."
 echo " "
-echo -e "\nIf you ever have any questions, concerns, or would like to rate our service"
+echo -e "\nIf you ever have any questions, concerns, or would like to rate our service."
 echo " "
-echo -e "\nPlease feel free to contact us at any time @ 571-245-4647"
+echo -e "\nPlease feel free to contact us at any time @ 571-245-4647."
 echo "                                               "
 
 sleep 5
@@ -588,15 +593,18 @@ clear
 echo "-------------------------------------------------------------------------"
 echo "                                  THANK YOU                              "
 echo "-------------------------------------------------------------------------"
-
-echo "Thank you for your purchase"
+echo "   "
+echo "Thank you for your purchase."
 echo "                             "
-echo "Here at WingIn It, we value each and every customer"
+sleep 2
+echo "Here at WingIn It, we value each and every customer."
 echo "                                 "
-echo "For more than 25 years,our company has been focused on providing the best-ever fried chicken experience, along with attentive service to valued customers"
+sleep 2
+echo "For more than 25 years,our company has been focused on providing the best-ever fried chicken experience, along with attentive service to valued customers."
 echo "                                     "
-echo "We appreciate having you as a customer and look forward to serving you again "
+sleep 2
+echo "We appreciate having you as a customer and look forward to serving you again."
 echo "                                                                      "
-echo "---------------------------------------------------------------------------------------------------------"
-figlet THANK YOU, PLEASE VISIT AGAIN
-echo "---------------------------------------------------------------------------------------------------------"
+sleep 2
+clear
+figlet THANK YOU , KEEP WING'IN WITH US
