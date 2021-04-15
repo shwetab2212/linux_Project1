@@ -93,26 +93,26 @@ echo "-------------------------------------------------------------------------"
 	toilet --metal "Shweta"
 echo "-------------------------------------------------------------------------"
 
-sleep 10
+sleep 90
 clear
 
 echo "Welcome to Wing'In It!"
-sleep 10
+sleep 3
 echo "                      "
 echo "Home to the Very Best Chicken in all of Northern Virginia."
-sleep 10
+sleep 6
 echo "                           "
 echo "Our Mission is to Deliver the Freshest of Ingredients and Fuse Those With Our Passion For Wings."
-sleep 10
+sleep 8
 echo " "
 echo "At Wing'In It, We are All about BIG Portions, Remarkable Flavors, and Crispy Goodness."
-sleep 10
+sleep 8
 echo "                                           "
 echo "To Begin the Fresh Eating and Quality Service Expirecne; please proceed to the Login page."
-sleep 10
+sleep 8
 echo " "
 echo "And Thank YOU for dining with Us Today!"
-sleep 10
+sleep 3
 clear
 
 #								               #
@@ -304,7 +304,7 @@ echo " Enjoy!								  "
 #               (  (    /          '.__.'
 #                `"`'--'
 #
-sleep 30
+sleep 35
 clear
 
 echo "-------------------------------------"
@@ -371,7 +371,7 @@ price_for_selected_protein="${protein_options_price[$protein_options_selection-1
 #echo "Total Price is $price_for_selected_protein"
 echo "                                       "
 
-sleep 5
+sleep 4
 clear
 
 #for selection of sauce
@@ -408,7 +408,7 @@ price_for_selected_sauce="${sauce_options_price[$sauce_options_selection-1]}"
 #echo "Total Price is $price_for_selected_sauce"
 #echo "                                                  "
 
-sleep 5
+sleep 3
 clear
 
 # for selection of side
@@ -442,7 +442,7 @@ echo  "Price : \$${side_options_price[$side_options_selection-1]}"
 price_for_selected_side=$(( "$total_side_quantity * ${side_options_price[$side_options_selection-1]}" ))
 echo "                                     "
 
-sleep 5
+sleep 3
 clear
 
 # for selection of dresssing
@@ -474,7 +474,7 @@ echo " "
 price_for_selected_dressing="${dressing_options_price[$dressing_options_selection-1]}" 
 #echo "                                                 "
 
-sleep 5
+sleep 3
 clear
 
 # for selection of beverages
@@ -508,7 +508,7 @@ echo  "Price : \$${beverage_options_price[$beverage_options_selection-1]}"
 
 price_for_selected_beverage=$(( "$total_beverage_quantity * ${beverage_options_price[$beverage_options_selection-1]}" ))
 
-sleep 5
+sleep 3
 clear
 
 ################################################################################
@@ -535,12 +535,14 @@ echo "                                   "
 read -p "Is this your Order? Yes/No >> " confirm_order
 if [[ "$confirm_order" == "y" ]]
 	then
+	echo " "
 	echo "My Pleasure, Please proceed to checkout"
 fi
 
+echo " "
 echo "Please Wait, Adding Items to Your Cart...                                            "
 
-sleep 5
+sleep 4
 clear
 
 ################################################################################
@@ -608,7 +610,14 @@ echo "                                                                ----------
 echo "                                                                TOTAL:   	        \$$total"
 echo "                                                                -----------------------------------" 
 
-sleep 5
+read -p "Is this amount correct to charge to your perferred Payment Method? Yes/No >> " total_order
+if [[ "$total_order" == "y" ]]
+         then
+         echo " "
+         echo "Charging"
+fi
+# add Yes/ No option
+clear
 
 echo "------------------------------------------------------------------------"
 echo "	                             ORDER CONFIRMATION                       "
