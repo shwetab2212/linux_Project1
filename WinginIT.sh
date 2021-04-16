@@ -40,10 +40,10 @@
 #               --Menu Selection Brief					       #
 #               --Ordering Section					       #
 #			--Wing Size					       #
-#                       --Chocie of Sauce				       #
-#                       --Chocie of Side				       #
-#                       --Chocie of Dressing				       #
-#                       --Chocie of Beverage				       #
+#                       --Choice of Sauce				       #
+#                       --Choice of Side				       #
+#                       --Choice of Dressing				       #
+#                       --Choice of Beverage				       #
 #	Review Order Screen						       #
 #		--Order Summary						       #
 #	Confirmation Screen						       #
@@ -108,7 +108,7 @@ echo " "
 echo "At Wing'In It, We are All about BIG Portions, Remarkable Flavors, and Crispy Goodness."
 sleep 8
 echo "                                           "
-echo "To Begin the Fresh Eating and Quality Service Expirecne; please proceed to the Login page."
+echo "To Begin the Fresh Eating and Quality Service Experience; please proceed to the Login page."
 sleep 8
 echo " "
 echo "And Thank YOU for dining with Us Today!"
@@ -261,11 +261,11 @@ echo "  PLEASE SELECT FROM OUR WIDE VARIETY OF WINGS, SIDES AND SPECIALS  "
 echo " "
 echo "  WE HAVE A VARIETY TO SELECT FROM:                                 "
 echo "  "
-echo "  From Small to Large Sizes					  "
+echo "  From Small to Large Sizes.					  "
 echo "	"
-echo "  The amount of wings comes in 10, 15, to 20 in the large		  "
+echo "  The amount of wings comes in 10, 15, to 20 in the large.		  "
 echo " "
-echo "  Then you can choose your pick of protein			  "
+echo "  Then you can choose your pick of protein.			  "
 echo " "
 echo "  You can pick from Regular, Drum_Only Flat_Only,	and		  "
 echo "  yes, we even have vegan options with Breaded_Cauliflower wings!   "
@@ -333,7 +333,7 @@ echo "Your Choice was a size $selected_wing_size order."
 echo " "
 echo  "Quantity : $total_wing_quantity"
 echo " "
-echo  "Price : \$${wing_size_price[$wing_size_selection-1]}"
+echo  "Price for each: \$${wing_size_price[$wing_size_selection-1]}"
 
 price_for_selected_wing_size=$(( "$total_wing_quantity * ${wing_size_price[$wing_size_selection-1]}" ))
 
@@ -350,7 +350,7 @@ counter=1
 
 for p in ${protein_options[@]}
 	do 
-	echo -e "\n$counter.$p" # not needed ==>  \t\tPrice: \$${protein_options_price[$counter-1]} "
+	echo -e "\n$counter.$p" 
 	((counter++))
 done
 
@@ -364,11 +364,9 @@ selected_protein="${protein_options[$protein_options_selection-1]}"
 
 echo "Your Choice of Protein is $selected_protein"
 echo "                                        "
-#echo "Price : ${protein_options_price[$protein_options_selection-1]}"
 
 price_for_selected_protein="${protein_options_price[$protein_options_selection-1]}" 
 
-#echo "Total Price is $price_for_selected_protein"
 echo "                                       "
 
 sleep 4
@@ -398,15 +396,8 @@ selected_sauce="${sauce_options[$sauce_options_selection-1]}"
 echo "Your Choice of Sauce is $selected_sauce"
 echo "                                  "
 
-#echo "Price : ${sauce_options_price[$sauce_options_selection-1]}"
-#read -p "How many do you need >>" total_wing_quantity
-#echo -e "\nQuantity : $total_wing_quantity"
-#echo -e "\nPrice : $price_for_selected_sauce"
-
 price_for_selected_sauce="${sauce_options_price[$sauce_options_selection-1]}" 
 
-#echo "Total Price is $price_for_selected_sauce"
-#echo "                                                  "
 
 sleep 3
 clear
@@ -468,11 +459,8 @@ selected_dressing="${dressing_options[$dressing_options_selection-1]}"
 
 echo "Your Choice was $selected_dressing"
 echo " "
-#echo "Price :$price_for_selected_dressing"
-
 
 price_for_selected_dressing="${dressing_options_price[$dressing_options_selection-1]}" 
-#echo "                                                 "
 
 sleep 3
 clear
@@ -597,15 +585,6 @@ printf "%*s\n" 90 "$selected_side    QTY:$total_side_quantity          \$$price_
 printf "%*s\n" 90 "$selected_beverage    QTY:$total_beverage_quantity         \$$price_for_selected_beverage"
 printf "%*s\n" 90 "Delvery Charges:     \$$deliveryCharges"
 printf "%*s\n" 90 "Tax at 0.08%:     \$$total_tax"
-
-#echo -e "Size:$selected_wing_size \tQTY:$total_wing_quantity \t\t\$$price_for_selected_wing_size"
-#echo "$selected_protein                                                                                  "
-#echo "$selected_sauce                                                          				 "
-#echo -e "$selected_side	\tQTY:$total_side_quantity \t\t\$$price_for_selected_side"
-#echo "$selected_dressing                                                   				 "
-#echo -e "$selected_beverage \tQTY:$total_beverage_quantity \t\t\$$price_for_selected_beverage"
-#echo -e "Delvery Charges \t\t\t\$$deliveryCharges"
-#echo -e "Tax at 0.08% \t\t\t\$$total_tax"
 echo "                                                                -----------------------------------"
 echo "                                                                TOTAL:   	        \$$total"
 echo "                                                                -----------------------------------" 
@@ -616,7 +595,6 @@ if [[ "$total_order" == "y" ]]
          echo " "
          echo "Charging"
 fi
-# add Yes/ No option
 clear
 
 echo "------------------------------------------------------------------------"
